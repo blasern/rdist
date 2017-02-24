@@ -29,3 +29,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// minkowski_distance
+NumericMatrix minkowski_distance(NumericMatrix A, NumericMatrix B, float p);
+RcppExport SEXP fastmetrics_minkowski_distance(SEXP ASEXP, SEXP BSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(minkowski_distance(A, B, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pairwise_minkowski_distance
+NumericMatrix pairwise_minkowski_distance(NumericMatrix A, float p);
+RcppExport SEXP fastmetrics_pairwise_minkowski_distance(SEXP ASEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(pairwise_minkowski_distance(A, p));
+    return rcpp_result_gen;
+END_RCPP
+}

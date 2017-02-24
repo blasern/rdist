@@ -4,12 +4,14 @@
 \alias{cdist}
 \title{Pairwise distances}
 \usage{
-cdist(X, Y, metric = "euclidean")
+cdist(X, Y, metric = c("euclidean", "minkowski"), p = 2)
 }
 \arguments{
 \item{X, Y}{A matrix}
 
 \item{metric}{The distance metric to use}
+
+\item{p}{The power of the Minkowski distance}
 }
 \description{
 Computes distance between each pair of the two collections of inputs.

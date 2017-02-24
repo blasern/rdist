@@ -4,12 +4,14 @@
 \alias{pdist}
 \title{Pairwise distances}
 \usage{
-pdist(X, metric = "euclidean")
+pdist(X, metric = c("euclidean", "minkowski"), p = 2)
 }
 \arguments{
 \item{X}{A matrix}
 
 \item{metric}{The distance metric to use}
+
+\item{p}{The power of the Minkowski distance}
 }
 \description{
 Computes pairwise distance between observations.

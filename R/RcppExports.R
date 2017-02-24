@@ -9,3 +9,11 @@ pairwise_euclidean_distance <- function(A) {
     .Call('fastmetrics_pairwise_euclidean_distance', PACKAGE = 'fastmetrics', A)
 }
 
+minkowski_distance <- function(A, B, p) {
+    .Call('fastmetrics_minkowski_distance', PACKAGE = 'fastmetrics', A, B, p)
+}
+
+pairwise_minkowski_distance <- function(A, p) {
+    .Call('fastmetrics_pairwise_minkowski_distance', PACKAGE = 'fastmetrics', A, p)
+}
+
