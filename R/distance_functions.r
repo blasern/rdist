@@ -4,6 +4,7 @@
 #' 
 #' @param X,Y A matrix
 #' @param metric The distance metric to use
+#' @export
 cdist <- function(X, Y, metric = "euclidean"){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -20,6 +21,7 @@ cdist <- function(X, Y, metric = "euclidean"){
 #' 
 #' @param X A matrix
 #' @param metric The distance metric to use
+#' @export
 pdist <- function(X, metric = "euclidean"){
   # make sure input is well-defined
   metric <- match.arg(metric)
