@@ -1,5 +1,5 @@
 # fastmetrics
-An R package to calculate pairwise distances 
+An R package to calculate pairwise distances.
 
 To install the latest version of this R package directly from github:
 
