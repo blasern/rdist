@@ -1,0 +1,15 @@
+Package: fastmetrics
+Title: Calculate Pairwise Distances
+Version: 0.0.0.9000
+Authors@R: person("Nello", "Blaser", email = "nello.blaser@uib.no", role = c("aut", "cre"))
+Description: A fast tool for calculating distance matrices.
+Depends:
+    R (>= 3.2.2)
+License: GPL
+Encoding: UTF-8
+LazyData: true
+LinkingTo: Rcpp, RcppArmadillo
+Imports:
+    Rcpp
+RoxygenNote: 5.0.1
+Suggests: testthat
