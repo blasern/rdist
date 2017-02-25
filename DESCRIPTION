@@ -1,4 +1,4 @@
-Package: fastmetrics
+Package: rdist
 Title: Calculate Pairwise Distances
 Version: 0.0.0.9000
 Authors@R: person("Nello", "Blaser", email = "nello.blaser@uib.no", role = c("aut", "cre"))

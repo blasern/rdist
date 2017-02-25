@@ -4,7 +4,7 @@
 \alias{cdist}
 \title{Pairwise distances}
 \usage{
-cdist(X, Y, metric = c("euclidean", "minkowski"), p = 2)
+cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan"), p = 2)
 }
 \arguments{
 \item{X, Y}{A matrix}

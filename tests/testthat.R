@@ -1,4 +1,4 @@
 library(testthat)
-library(fastmetrics)
+library(rdist)
 
-test_check("fastmetrics")
+test_check("rdist")

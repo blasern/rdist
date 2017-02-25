@@ -4,7 +4,7 @@
 using namespace Rcpp;
  
 // [[Rcpp::export]]
-NumericMatrix minkowski_distance(NumericMatrix A, NumericMatrix B, double p) {
+NumericMatrix manhattan_distance(NumericMatrix A, NumericMatrix B) {
   int m = A.nrow(), n = B.nrow(), k = A.ncol();
   
   arma::mat Ar = arma::mat(A.begin(), m, k, false); 
@@ -15,15 +15,15 @@ NumericMatrix minkowski_distance(NumericMatrix A, NumericMatrix B, double p) {
   for (int i = 0; i < m; ++i){
     arma::mat Arow = Ar.row(i);
     for (int j = 0; j < n; ++j){
-      C(i, j) = sum(pow(abs(Arow - Br.row(j)), p)); 
+      C(i, j) = sum(abs(Arow - Br.row(j))); 
     }
   }
   
-  return wrap(pow(C, 1/p)); 
+  return wrap(C); 
 }
 
 // [[Rcpp::export]]
-NumericMatrix pairwise_minkowski_distance(NumericMatrix A, double p) {
+NumericMatrix pairwise_manhattan_distance(NumericMatrix A) {
   int n = A.nrow(), k = A.ncol();
   
   arma::mat Ar = arma::mat(A.begin(), n, k, false); 
@@ -33,9 +33,9 @@ NumericMatrix pairwise_minkowski_distance(NumericMatrix A, double p) {
   for (int i = 0; i < n; ++i){
     arma::mat Arow = Ar.row(i);
     for (int j = 0; j < n; ++j){
-      C(i, j) = sum(pow(abs(Arow - Ar.row(j)), p)); 
+      C(i, j) = sum(abs(Arow - Ar.row(j))); 
     }
   }
   
-  return wrap(pow(C, 1/p)); 
+  return wrap(C); 
 }

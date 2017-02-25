@@ -1,10 +1,10 @@
-#' @useDynLib fastmetrics
+#' @useDynLib rdist
 #' @importFrom Rcpp sourceCpp
 NULL
 
-#' fastmetrics.
+#' rdist.
 #'
-#' @name fastmetrics
+#' @name rdist
 #' @docType package
 NULL
 

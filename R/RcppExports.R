@@ -2,18 +2,26 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 euclidean_distance <- function(A, B) {
-    .Call('fastmetrics_euclidean_distance', PACKAGE = 'fastmetrics', A, B)
+    .Call('rdist_euclidean_distance', PACKAGE = 'rdist', A, B)
 }
 
 pairwise_euclidean_distance <- function(A) {
-    .Call('fastmetrics_pairwise_euclidean_distance', PACKAGE = 'fastmetrics', A)
+    .Call('rdist_pairwise_euclidean_distance', PACKAGE = 'rdist', A)
+}
+
+manhattan_distance <- function(A, B) {
+    .Call('rdist_manhattan_distance', PACKAGE = 'rdist', A, B)
+}
+
+pairwise_manhattan_distance <- function(A) {
+    .Call('rdist_pairwise_manhattan_distance', PACKAGE = 'rdist', A)
 }
 
 minkowski_distance <- function(A, B, p) {
-    .Call('fastmetrics_minkowski_distance', PACKAGE = 'fastmetrics', A, B, p)
+    .Call('rdist_minkowski_distance', PACKAGE = 'rdist', A, B, p)
 }
 
 pairwise_minkowski_distance <- function(A, p) {
-    .Call('fastmetrics_pairwise_minkowski_distance', PACKAGE = 'fastmetrics', A, p)
+    .Call('rdist_pairwise_minkowski_distance', PACKAGE = 'rdist', A, p)
 }
 

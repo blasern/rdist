@@ -6,7 +6,7 @@
 #' @param metric The distance metric to use
 #' @param p The power of the Minkowski distance
 #' @export
-cdist <- function(X, Y, metric = c("euclidean", "minkowski"), p = 2){
+cdist <- function(X, Y, metric = c("euclidean", "minkowski", "manhattan"), p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
   X <- as.matrix(X)
@@ -15,7 +15,8 @@ cdist <- function(X, Y, metric = c("euclidean", "minkowski"), p = 2){
   # use metric
   switch(metric, 
          "euclidean" = euclidean_distance(X, Y), 
-         "minkowski" = minkowski_distance(X, Y, p = p))
+         "minkowski" = minkowski_distance(X, Y, p = p), 
+         "manhattan" = manhattan_distance(X, Y))
 }
 
 #' Pairwise distances
@@ -26,12 +27,13 @@ cdist <- function(X, Y, metric = c("euclidean", "minkowski"), p = 2){
 #' @param metric The distance metric to use
 #' @param p The power of the Minkowski distance
 #' @export
-pdist <- function(X, metric = c("euclidean", "minkowski"), p = 2){
+pdist <- function(X, metric = c("euclidean", "minkowski", "manhattan"), p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
   X <- as.matrix(X)
   # use metric
   switch(metric, 
          "euclidean" = pairwise_euclidean_distance(X), 
-         "minkowski" = pairwise_minkowski_distance(X, p = p))
+         "minkowski" = pairwise_minkowski_distance(X, p = p), 
+         "manhattan" = pairwise_manhattan_distance(X))
 }

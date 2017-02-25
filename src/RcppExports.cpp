@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // euclidean_distance
 NumericMatrix euclidean_distance(NumericMatrix A, NumericMatrix B);
-RcppExport SEXP fastmetrics_euclidean_distance(SEXP ASEXP, SEXP BSEXP) {
+RcppExport SEXP rdist_euclidean_distance(SEXP ASEXP, SEXP BSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -20,7 +20,7 @@ END_RCPP
 }
 // pairwise_euclidean_distance
 NumericMatrix pairwise_euclidean_distance(NumericMatrix A);
-RcppExport SEXP fastmetrics_pairwise_euclidean_distance(SEXP ASEXP) {
+RcppExport SEXP rdist_pairwise_euclidean_distance(SEXP ASEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -29,27 +29,50 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// minkowski_distance
-NumericMatrix minkowski_distance(NumericMatrix A, NumericMatrix B, float p);
-RcppExport SEXP fastmetrics_minkowski_distance(SEXP ASEXP, SEXP BSEXP, SEXP pSEXP) {
+// manhattan_distance
+NumericMatrix manhattan_distance(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP rdist_manhattan_distance(SEXP ASEXP, SEXP BSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
     Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
-    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(manhattan_distance(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pairwise_manhattan_distance
+NumericMatrix pairwise_manhattan_distance(NumericMatrix A);
+RcppExport SEXP rdist_pairwise_manhattan_distance(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(pairwise_manhattan_distance(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// minkowski_distance
+NumericMatrix minkowski_distance(NumericMatrix A, NumericMatrix B, double p);
+RcppExport SEXP rdist_minkowski_distance(SEXP ASEXP, SEXP BSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
     rcpp_result_gen = Rcpp::wrap(minkowski_distance(A, B, p));
     return rcpp_result_gen;
 END_RCPP
 }
 // pairwise_minkowski_distance
-NumericMatrix pairwise_minkowski_distance(NumericMatrix A, float p);
-RcppExport SEXP fastmetrics_pairwise_minkowski_distance(SEXP ASEXP, SEXP pSEXP) {
+NumericMatrix pairwise_minkowski_distance(NumericMatrix A, double p);
+RcppExport SEXP rdist_pairwise_minkowski_distance(SEXP ASEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
-    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
     rcpp_result_gen = Rcpp::wrap(pairwise_minkowski_distance(A, p));
     return rcpp_result_gen;
 END_RCPP
