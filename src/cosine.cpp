@@ -10,7 +10,7 @@ NumericVector cosine_rdist(NumericMatrix A) {
         k = A.ncol();
     arma::mat Ar = arma::mat(A.begin(), n, k, false); 
  
-    arma::colvec An =  sum(square(Ar),1);
+    arma::colvec An =  sum(square(Ar), 1);
  
     arma::mat C = arma::ones(n, n) - (Ar * Ar.t())/ sqrt(An * An.t());
     arma::mat D(1, n * (n-1) / 2);
@@ -31,7 +31,7 @@ NumericMatrix cosine_pdist(NumericMatrix A) {
         k = A.ncol();
     arma::mat Ar = arma::mat(A.begin(), n, k, false); 
  
-    arma::colvec An =  sum(square(Ar),1);
+    arma::colvec An =  sum(square(Ar), 1);
  
     arma::mat C = arma::ones(n, n) - (Ar * Ar.t())/ sqrt(An * An.t());
  
