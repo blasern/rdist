@@ -9,13 +9,13 @@
 \title{rdist: an R package for distances}
 \usage{
 rdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum"), p = 2)
+  "maximum", "cosine"), p = 2)
 
 pdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum"), p = 2)
+  "maximum", "cosine"), p = 2)
 
 cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum"), p = 2)
+  "maximum", "cosine"), p = 2)
 }
 \arguments{
 \item{X, Y}{A matrix}
@@ -30,6 +30,16 @@ cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
 \item \code{rdist} computes the pairwise distances between observations in one matrix and returns a \code{dist} object,
 \item \code{pdist} computes the pairwise distances between observations in one matrix and returns a \code{matrix}, and
 \item \code{cdist} computes the distances between observations in two matrices and returns a \code{matrix}. 
+}
+}
+\details{
+Available distance measures are (written for two vectors v and w):
+\itemize{
+\item \code{"euclidean"}: ...
+\item \code{"minkowski"}: ...
+\item \code{"manhattan"}: ...
+\item \code{"maximum"} or \code{"chebyshev"}: ...
+\item \code{"cosine"}: ...
 }
 }
 

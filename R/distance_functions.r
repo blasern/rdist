@@ -1,7 +1,8 @@
 #' @rdname rdist
 #' @export
 rdist <- function(X, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum"), 
+                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
+                             "cosine"), 
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -12,7 +13,8 @@ rdist <- function(X,
                 "minkowski" = minkowski_rdist(X, p = p), 
                 "manhattan" = manhattan_rdist(X), 
                 "chebyshev" = maximum_rdist(X), 
-                "maximum" = maximum_rdist(X))
+                "maximum" = maximum_rdist(X), 
+                "cosine" = cosine_rdist(X))
   # change attributes
   attributes(ans) <- NULL
   attr(ans, "Size") <- nrow(X)
@@ -25,7 +27,8 @@ rdist <- function(X,
 #' @rdname rdist
 #' @export
 pdist <- function(X, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum"), 
+                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
+                             "cosine"), 
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -36,13 +39,15 @@ pdist <- function(X,
          "minkowski" = minkowski_pdist(X, p = p), 
          "manhattan" = manhattan_pdist(X), 
          "chebyshev" = maximum_pdist(X), 
-         "maximum" = maximum_pdist(X))
+         "maximum" = maximum_pdist(X), 
+         "cosine" = cosine_pdist(X))
 }
 
 #' @rdname rdist
 #' @export
 cdist <- function(X, Y, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum"),
+                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
+                             "cosine"),
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -55,5 +60,6 @@ cdist <- function(X, Y,
          "minkowski" = minkowski_cdist(X, Y, p = p), 
          "manhattan" = manhattan_cdist(X, Y),
          "chebyshev" = maximum_cdist(X, Y),
-         "maximum" = maximum_cdist(X, Y))
+         "maximum" = maximum_cdist(X, Y), 
+         "cosine" = cosine_cdist(X, Y))
 }
