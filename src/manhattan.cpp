@@ -2,9 +2,47 @@
 // [[Rcpp::depends(RcppArmadillo)]]
  
 using namespace Rcpp;
- 
+
 // [[Rcpp::export]]
-NumericMatrix manhattan_distance(NumericMatrix A, NumericMatrix B) {
+NumericVector manhattan_rdist(NumericMatrix A) {
+  int n = A.nrow(), k = A.ncol();
+  
+  arma::mat Ar = arma::mat(A.begin(), n, k, false); 
+  
+  NumericVector C(n * (n-1) / 2);
+  
+  int l = 0;
+  for (int i = 0; i < n; ++i){
+    arma::mat Arow = Ar.row(i);
+    for (int j = i + 1; j < n; ++j){
+      C(l) = sum(abs(Arow - Ar.row(j))); 
+      l++;
+    }
+  }
+  
+  return C; 
+}
+
+// [[Rcpp::export]]
+NumericMatrix manhattan_pdist(NumericMatrix A) {
+  int n = A.nrow(), k = A.ncol();
+  
+  arma::mat Ar = arma::mat(A.begin(), n, k, false); 
+  
+  arma::mat C(n, n);
+  
+  for (int i = 0; i < n; ++i){
+    arma::mat Arow = Ar.row(i);
+    for (int j = 0; j < n; ++j){
+      C(i, j) = sum(abs(Arow - Ar.row(j))); 
+    }
+  }
+  
+  return wrap(C); 
+}
+
+// [[Rcpp::export]]
+NumericMatrix manhattan_cdist(NumericMatrix A, NumericMatrix B) {
   int m = A.nrow(), n = B.nrow(), k = A.ncol();
   
   arma::mat Ar = arma::mat(A.begin(), m, k, false); 
@@ -16,24 +54,6 @@ NumericMatrix manhattan_distance(NumericMatrix A, NumericMatrix B) {
     arma::mat Arow = Ar.row(i);
     for (int j = 0; j < n; ++j){
       C(i, j) = sum(abs(Arow - Br.row(j))); 
-    }
-  }
-  
-  return wrap(C); 
-}
-
-// [[Rcpp::export]]
-NumericMatrix pairwise_manhattan_distance(NumericMatrix A) {
-  int n = A.nrow(), k = A.ncol();
-  
-  arma::mat Ar = arma::mat(A.begin(), n, k, false); 
-  
-  arma::mat C(n, n);
-  
-  for (int i = 0; i < n; ++i){
-    arma::mat Arow = Ar.row(i);
-    for (int j = 0; j < n; ++j){
-      C(i, j) = sum(abs(Arow - Ar.row(j))); 
     }
   }
   

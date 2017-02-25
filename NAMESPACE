@@ -2,5 +2,6 @@
 
 export(cdist)
 export(pdist)
+export(rdist)
 importFrom(Rcpp,sourceCpp)
 useDynLib(rdist)

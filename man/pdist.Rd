@@ -16,4 +16,7 @@ pdist(X, metric = c("euclidean", "minkowski", "manhattan"), p = 2)
 \description{
 Computes pairwise distance between observations.
 }
+\seealso{
+\code{\link{rdist}}, \code{\link{cdist}}
+}
 

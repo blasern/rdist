@@ -3,8 +3,10 @@ context("manhattan")
 test_that("manhattan metric works as expected", {
   x <- matrix(rnorm(200), nrow = 100)
   
-  dist_mat <- as.matrix(dist(x, method = "manhattan"))
+  dist_dist <- dist(x, method = "manhattan")
+  dist_mat <- as.matrix(dist_dist)
   # check pdist and cdist 
+  expect_equivalent(dist_dist, rdist(x, metric = "manhattan"))
   expect_equivalent(dist_mat, pdist(x, metric = "manhattan"))
   expect_equivalent(dist_mat, cdist(x, x, metric = "manhattan"))
   expect_equivalent(dist_mat[1:2, 3:100], 

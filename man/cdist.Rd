@@ -14,6 +14,9 @@ cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan"), p = 2)
 \item{p}{The power of the Minkowski distance}
 }
 \description{
-Computes distance between each pair of the two collections of inputs.
+Computes distance between each pair of the two collections of inputs. Returns a \code{matrix}.
+}
+\seealso{
+\code{\link{rdist}}, \code{\link{pdist}}
 }
 
