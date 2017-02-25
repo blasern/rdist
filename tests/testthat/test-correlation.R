@@ -1,10 +1,16 @@
 context("correlation")
 
+bound <- function(x, min = -1, max = 1){
+  x[x > max] <- max
+  x[x < min] <- min
+  x
+}
+
 test_that("correlation metric works as expected", {
   x <- matrix(runif(200), nrow = 100)
   
   # reference results
-  dist_mat <- sqrt((1 - cor(t(x)))/2)
+  dist_mat <- sqrt((1 - bound(cor(t(x))))/2)
   dist_dist <- as.dist(dist_mat)
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "correlation"))
@@ -12,4 +18,32 @@ test_that("correlation metric works as expected", {
   expect_equal(dist_mat, cdist(x, x, metric = "correlation"))
   expect_equal(dist_mat[1:2, 3:100], cdist(x[1:2, ], x[3:100, ], metric = "correlation"))
   expect_equal(dist_mat[1, 2:100, drop = FALSE], cdist(x[1, , drop = FALSE], x[2:100, ], metric = "correlation"))
+})
+
+test_that("angular metric works as expected", {
+  x <- matrix(runif(200), nrow = 100)
+  
+  # reference results
+  dist_mat <- acos(bound(cor(t(x))))
+  dist_dist <- as.dist(dist_mat)
+  # check pdist and cdist 
+  expect_equivalent(dist_dist, rdist(x, metric = "angular"))
+  expect_equal(dist_mat, pdist(x, metric = "angular"))
+  expect_equal(dist_mat, cdist(x, x, metric = "angular"), tolerance = 1e-7)
+  expect_equal(dist_mat[1:2, 3:100], cdist(x[1:2, ], x[3:100, ], metric = "angular"), tolerance = 1e-7)
+  expect_equal(dist_mat[1, 2:100, drop = FALSE], cdist(x[1, , drop = FALSE], x[2:100, ], metric = "angular"), tolerance = 1e-7)
+})
+
+test_that("absolute correlation metric works as expected", {
+  x <- matrix(runif(200), nrow = 100)
+  
+  # reference results
+  dist_mat <- sqrt((1 - bound(cor(t(x)))^2))
+  dist_dist <- as.dist(dist_mat)
+  # check pdist and cdist 
+  expect_equivalent(dist_dist, rdist(x, metric = "absolute_correlation"))
+  expect_equal(dist_mat, pdist(x, metric = "absolute_correlation"))
+  expect_equal(dist_mat, cdist(x, x, metric = "absolute_correlation"), tolerance = 1e-7)
+  expect_equal(dist_mat[1:2, 3:100], cdist(x[1:2, ], x[3:100, ], metric = "absolute_correlation"), tolerance = 1e-7)
+  expect_equal(dist_mat[1, 2:100, drop = FALSE], cdist(x[1, , drop = FALSE], x[2:100, ], metric = "absolute_correlation"), tolerance = 1e-7)
 })

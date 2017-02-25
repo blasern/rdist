@@ -17,5 +17,5 @@ To install the latest version of this R package directly from github:
 
 ## Development
 
-This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"` and `"correlation"`. The inclusion of further metrics are planned. 
+This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"`, `"correlation"` and `"absolute_correlation"`. The inclusion of further metrics are planned. 
 If you would like to contribute, please [create a pull request](https://github.com/blasern/fastmetrics/compare).

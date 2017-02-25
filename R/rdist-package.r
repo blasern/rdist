@@ -9,12 +9,13 @@
 #' 
 #' @details Available distance measures are (written for two vectors v and w):
 #' \itemize{
-#' \item \code{"euclidean"}: \eqn{\sqrt{\sum_i((v_i - w_i)^2)}}{sqrt(sum_i((v_i - w_i)^2))}
-#' \item \code{"minkowski"}: \eqn{(\sum_i(|v_i - w_i|^p))^{1/p}}{(sum_i(|v_i - w_i|^p))^{1/p}}
+#' \item \code{"euclidean"}: \eqn{\sqrt{\sum_i(v_i - w_i)^2}}{sqrt(sum_i((v_i - w_i)^2))}
+#' \item \code{"minkowski"}: \eqn{(\sum_i|v_i - w_i|^p)^{1/p}}{(sum_i(|v_i - w_i|^p))^{1/p}}
 #' \item \code{"manhattan"}: \eqn{\sum_i(|v_i-w_i|)}{sum_i(|v_i-w_i|)}
 #' \item \code{"maximum"} or \code{"chebyshev"}: \eqn{\max_i(|v_i-w_i|)}{max_i(|v_i-w_i|)}
-#' \item \code{"angular"}: \eqn{\cos^{-1}(\cor(v, w))}{arccos(cor(v, w))}
+#' \item \code{"angular"}: \eqn{\cos^{-1}(cor(v, w))}{arccos(cor(v, w))}
 #' \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
+#' \item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}
 #' }
 #' @param X,Y A matrix
 #' @param metric The distance metric to use
