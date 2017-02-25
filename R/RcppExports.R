@@ -25,6 +25,18 @@ manhattan_cdist <- function(A, B) {
     .Call('rdist_manhattan_cdist', PACKAGE = 'rdist', A, B)
 }
 
+maximum_rdist <- function(A) {
+    .Call('rdist_maximum_rdist', PACKAGE = 'rdist', A)
+}
+
+maximum_pdist <- function(A) {
+    .Call('rdist_maximum_pdist', PACKAGE = 'rdist', A)
+}
+
+maximum_cdist <- function(A, B) {
+    .Call('rdist_maximum_cdist', PACKAGE = 'rdist', A, B)
+}
+
 minkowski_rdist <- function(A, p) {
     .Call('rdist_minkowski_rdist', PACKAGE = 'rdist', A, p)
 }

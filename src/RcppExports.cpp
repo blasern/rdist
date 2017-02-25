@@ -74,6 +74,40 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// maximum_rdist
+NumericVector maximum_rdist(NumericMatrix A);
+RcppExport SEXP rdist_maximum_rdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(maximum_rdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// maximum_pdist
+NumericMatrix maximum_pdist(NumericMatrix A);
+RcppExport SEXP rdist_maximum_pdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(maximum_pdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// maximum_cdist
+NumericMatrix maximum_cdist(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP rdist_maximum_cdist(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    rcpp_result_gen = Rcpp::wrap(maximum_cdist(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
 // minkowski_rdist
 NumericVector minkowski_rdist(NumericMatrix A, double p);
 RcppExport SEXP rdist_minkowski_rdist(SEXP ASEXP, SEXP pSEXP) {

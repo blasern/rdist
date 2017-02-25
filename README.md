@@ -1,6 +1,6 @@
 # rdist
 
-An R package to calculate pairwise distances. This provide a common framework to calculate distance functions.  
+An R package to calculate distances. This provide a common framework to calculate distances.  
 There are three main functions: 
 - `rdist` computes the pairwise distances between observations in one matrix and returns a `dist` object,
 - `pdist` computes the pairwise distances between observations in one matrix and returns a `matrix`, and
@@ -17,5 +17,5 @@ To install the latest version of this R package directly from github:
 
 ## Development
 
-This package currently includes the metrics `"euclidean"`, `"minkowski"` and `"manhattan"`. The inclusion of further metrics are planned. 
+This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"` and `"maximum"`. The inclusion of further metrics are planned. 
 If you would like to contribute, please [create a pull request](https://github.com/blasern/fastmetrics/compare).
