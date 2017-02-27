@@ -2,7 +2,8 @@
 #' @export
 rdist <- function(X, 
                   metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation"), 
+                             "angular", "correlation", "absolute_correlation", 
+                             "hamming"), 
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -16,7 +17,8 @@ rdist <- function(X,
                 "maximum" = maximum_rdist(X), 
                 "angular" = angular_rdist(X), 
                 "correlation" = correlation_rdist(X), 
-                "absolute_correlation" = absolute_correlation_rdist(X))
+                "absolute_correlation" = absolute_correlation_rdist(X), 
+                "hamming" = hamming_rdist(X))
   # change attributes
   attributes(ans) <- NULL
   attr(ans, "Size") <- nrow(X)
@@ -30,7 +32,8 @@ rdist <- function(X,
 #' @export
 pdist <- function(X, 
                   metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation"), 
+                             "angular", "correlation", "absolute_correlation", 
+                             "hamming"), 
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -44,14 +47,16 @@ pdist <- function(X,
          "maximum" = maximum_pdist(X), 
          "angular" = angular_pdist(X), 
          "correlation" = correlation_pdist(X), 
-         "absolute_correlation" = absolute_correlation_pdist(X))
+         "absolute_correlation" = absolute_correlation_pdist(X), 
+         "hamming" = hamming_pdist(X))
 }
 
 #' @rdname rdist
 #' @export
 cdist <- function(X, Y, 
                   metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation"),
+                             "angular", "correlation", "absolute_correlation", 
+                             "hamming"),
                   p = 2){
   # make sure input is well-defined
   metric <- match.arg(metric)
@@ -67,5 +72,6 @@ cdist <- function(X, Y,
          "maximum" = maximum_cdist(X, Y), 
          "angular" = angular_cdist(X, Y), 
          "correlation" = correlation_cdist(X, Y), 
-         "absolute_correlation" = absolute_correlation_cdist(X, Y))
+         "absolute_correlation" = absolute_correlation_cdist(X, Y), 
+         "hamming" = hamming_cdist(X, Y))
 }

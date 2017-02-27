@@ -6,7 +6,7 @@ There are three main functions:
 - `pdist` computes the pairwise distances between observations in one matrix and returns a `matrix`, and
 - `cdist` computes the distances between observations in two matrices and returns a `matrix`. 
 
-All functions have an argument `metric` that can be used to specify the distance function. 
+All functions have an argument `metric` that can be used to specify the distance function. All functions will return NA or NaN when one of the compared vectors contains NAs.
 
 ## Installation 
 
@@ -17,5 +17,5 @@ To install the latest version of this R package directly from github:
 
 ## Development
 
-This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"`, `"correlation"` and `"absolute_correlation"`. The inclusion of further metrics are planned. 
-If you would like to contribute, please [create a pull request](https://github.com/blasern/fastmetrics/compare).
+This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"`, `"correlation"` and `"absolute_correlation"` and `"hamming"`. The inclusion of further metrics are planned. 
+If you would like to contribute, please [create a pull request](https://github.com/blasern/rdist/compare).

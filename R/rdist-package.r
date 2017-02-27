@@ -16,6 +16,7 @@
 #' \item \code{"angular"}: \eqn{\cos^{-1}(cor(v, w))}{arccos(cor(v, w))}
 #' \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
 #' \item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}
+#' \item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
 #' }
 #' @param X,Y A matrix
 #' @param metric The distance metric to use

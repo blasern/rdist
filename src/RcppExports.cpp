@@ -40,6 +40,40 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// hamming_rdist
+NumericVector hamming_rdist(NumericMatrix A);
+RcppExport SEXP rdist_hamming_rdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(hamming_rdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// hamming_pdist
+NumericMatrix hamming_pdist(NumericMatrix A);
+RcppExport SEXP rdist_hamming_pdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(hamming_pdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// hamming_cdist
+NumericMatrix hamming_cdist(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP rdist_hamming_cdist(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    rcpp_result_gen = Rcpp::wrap(hamming_cdist(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
 // manhattan_rdist
 NumericVector manhattan_rdist(NumericMatrix A);
 RcppExport SEXP rdist_manhattan_rdist(SEXP ASEXP) {

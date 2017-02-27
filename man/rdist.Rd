@@ -9,13 +9,16 @@
 \title{rdist: an R package for distances}
 \usage{
 rdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation"), p = 2)
+  "maximum", "angular", "correlation", "absolute_correlation", "hamming"),
+  p = 2)
 
 pdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation"), p = 2)
+  "maximum", "angular", "correlation", "absolute_correlation", "hamming"),
+  p = 2)
 
 cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation"), p = 2)
+  "maximum", "angular", "correlation", "absolute_correlation", "hamming"),
+  p = 2)
 }
 \arguments{
 \item{X, Y}{A matrix}
@@ -42,6 +45,7 @@ Available distance measures are (written for two vectors v and w):
 \item \code{"angular"}: \eqn{\cos^{-1}(cor(v, w))}{arccos(cor(v, w))}
 \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
 \item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}
+\item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
 }
 }
 

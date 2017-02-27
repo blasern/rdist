@@ -13,6 +13,18 @@ euclidean_cdist <- function(A, B) {
     .Call('rdist_euclidean_cdist', PACKAGE = 'rdist', A, B)
 }
 
+hamming_rdist <- function(A) {
+    .Call('rdist_hamming_rdist', PACKAGE = 'rdist', A)
+}
+
+hamming_pdist <- function(A) {
+    .Call('rdist_hamming_pdist', PACKAGE = 'rdist', A)
+}
+
+hamming_cdist <- function(A, B) {
+    .Call('rdist_hamming_cdist', PACKAGE = 'rdist', A, B)
+}
+
 manhattan_rdist <- function(A) {
     .Call('rdist_manhattan_rdist', PACKAGE = 'rdist', A)
 }
