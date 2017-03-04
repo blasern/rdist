@@ -15,9 +15,9 @@ NumericVector jaccard_rdist(NumericMatrix A) {
   for (int i = 0; i < n; ++i){
     arma::rowvec Arow = Ar.row(i);
     for (int j = i + 1; j < n; ++j){
-      arma::urowvec tempvec = (Arow == 0);
-      tempvec.elem( find(Ar.row(j) != 0) ) += 2;
-      C(l) = (double)sum(Arow != Ar.row(j)) / (double)sum(tempvec != 1); 
+      arma::urowvec zerovec = (Arow == 0);
+      zerovec.elem( find(Ar.row(j) != 0) ).zeros();
+      C(l) = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
       l++;
     }
   }
@@ -36,9 +36,9 @@ NumericMatrix jaccard_pdist(NumericMatrix A) {
   for (int i = 0; i < n; ++i){
     arma::mat Arow = Ar.row(i);
     for (int j = 0; j < n; ++j){
-      arma::urowvec tempvec = (Arow == 0);
-      tempvec.elem( find(Ar.row(j) != 0) ) += 2;
-      C(i, j)  = (double)sum(Arow != Ar.row(j)) / (double)sum(tempvec != 1); 
+      arma::urowvec zerovec = (Arow == 0);
+      zerovec.elem( find(Ar.row(j) != 0) ).zeros();
+      C(i, j)  = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
     }
   }
   
@@ -57,9 +57,9 @@ NumericMatrix jaccard_cdist(NumericMatrix A, NumericMatrix B) {
   for (int i = 0; i < m; ++i){
     arma::mat Arow = Ar.row(i);
     for (int j = 0; j < n; ++j){
-      arma::urowvec tempvec = (Arow == 0);
-      tempvec.elem( find(Br.row(j) != 0) ) += 2;
-      C(i, j)  = (double)sum(Arow != Br.row(j)) / (double)sum(tempvec != 1); 
+      arma::urowvec zerovec = (Arow == 0);
+      zerovec.elem( find(Br.row(j) != 0) ).zeros();
+      C(i, j)  = (double)sum(Arow != Br.row(j)) / (double)sum(zerovec != 1); 
     }
   }
   
