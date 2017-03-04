@@ -2,8 +2,9 @@
 % Please edit documentation in R/distance_functions.r, R/rdist-package.r
 \docType{package}
 \name{rdist}
-\alias{cdist}
+\alias{rdist}
 \alias{pdist}
+\alias{cdist}
 \alias{rdist}
 \alias{rdist-package}
 \title{rdist: an R package for distances}
@@ -41,9 +42,8 @@ Available distance measures are (written for two vectors v and w):
 \item \code{"canberra"}: \eqn{\sum_i(\frac{|v_i-w_i|}{|v_i|+|w_i|})}{sum_i(|v_i-w_i|/(|v_i|+|w_i|))}
 \item \code{"angular"}: \eqn{\cos^{-1}(cor(v, w))}{arccos(cor(v, w))}
 \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
-\item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}
-\item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
-\item \code{"jaccard"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1_{v_i != 0 \text{ or } w_i != 0}}{sum_i(v_i != w_i)/sum_i(v_i != 0 or w_i != 0)}
+\item \code{"absolute_correlation"}: \eqn{\sqrt{1-|cor(v, w)|^2}}{sqrt((1-|cor(v, w)|^2))}
+\item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i) / \sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
+\item \code{"jaccard"}: \eqn{(\sum_i v_i \neq w_i) / \sum_i 1_{v_i \neq 0 \cup w_i \neq 0}}{sum_i(v_i != w_i)/sum_i(v_i != 0 or w_i != 0)}
 }
 }
-
