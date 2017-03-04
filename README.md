@@ -17,5 +17,6 @@ To install the latest version of this R package directly from github:
 
 ## Development
 
-This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"`, `"correlation"` and `"absolute_correlation"` and `"hamming"`. The inclusion of further metrics are planned. 
+This package currently includes the metrics `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"angular"`, `"correlation"`, `"absolute_correlation"`, `"hamming"`, and `"jaccard"`. The inclusion of further metrics are planned. 
+If you find issues, please [let me know](https://github.com/blasern/rdist/issues). 
 If you would like to contribute, please [create a pull request](https://github.com/blasern/rdist/compare).

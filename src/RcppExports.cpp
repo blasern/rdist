@@ -74,6 +74,40 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// jaccard_rdist
+NumericVector jaccard_rdist(NumericMatrix A);
+RcppExport SEXP rdist_jaccard_rdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(jaccard_rdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// jaccard_pdist
+NumericMatrix jaccard_pdist(NumericMatrix A);
+RcppExport SEXP rdist_jaccard_pdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(jaccard_pdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// jaccard_cdist
+NumericMatrix jaccard_cdist(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP rdist_jaccard_cdist(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    rcpp_result_gen = Rcpp::wrap(jaccard_cdist(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
 // manhattan_rdist
 NumericVector manhattan_rdist(NumericMatrix A);
 RcppExport SEXP rdist_manhattan_rdist(SEXP ASEXP) {

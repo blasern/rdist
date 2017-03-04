@@ -25,6 +25,18 @@ hamming_cdist <- function(A, B) {
     .Call('rdist_hamming_cdist', PACKAGE = 'rdist', A, B)
 }
 
+jaccard_rdist <- function(A) {
+    .Call('rdist_jaccard_rdist', PACKAGE = 'rdist', A)
+}
+
+jaccard_pdist <- function(A) {
+    .Call('rdist_jaccard_pdist', PACKAGE = 'rdist', A)
+}
+
+jaccard_cdist <- function(A, B) {
+    .Call('rdist_jaccard_cdist', PACKAGE = 'rdist', A, B)
+}
+
 manhattan_rdist <- function(A) {
     .Call('rdist_manhattan_rdist', PACKAGE = 'rdist', A)
 }

@@ -6,6 +6,8 @@
 #' \item \code{pdist} computes the pairwise distances between observations in one matrix and returns a \code{matrix}, and
 #' \item \code{cdist} computes the distances between observations in two matrices and returns a \code{matrix}. 
 #' }
+#' In particular the \code{cdist} function is often missing in other distance functions. All 
+#' calculations involving \code{NA} values will consistently return \code{NA}. 
 #' 
 #' @details Available distance measures are (written for two vectors v and w):
 #' \itemize{
@@ -17,6 +19,7 @@
 #' \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
 #' \item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}
 #' \item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
+#' \item \code{"jaccard"}: \eqn{(\sum_i v_i \neq w_i)/\sum_i 1_{v_i != 0 \text{ or } w_i != 0}}{sum_i(v_i != w_i)/sum_i(v_i != 0 or w_i != 0)}
 #' }
 #' @param X,Y A matrix
 #' @param metric The distance metric to use
