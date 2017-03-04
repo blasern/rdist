@@ -6,6 +6,40 @@
 
 using namespace Rcpp;
 
+// canberra_rdist
+NumericVector canberra_rdist(NumericMatrix A);
+RcppExport SEXP rdist_canberra_rdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(canberra_rdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// canberra_pdist
+NumericMatrix canberra_pdist(NumericMatrix A);
+RcppExport SEXP rdist_canberra_pdist(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(canberra_pdist(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// canberra_cdist
+NumericMatrix canberra_cdist(NumericMatrix A, NumericMatrix B);
+RcppExport SEXP rdist_canberra_cdist(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    rcpp_result_gen = Rcpp::wrap(canberra_cdist(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
 // euclidean_rdist
 NumericVector euclidean_rdist(NumericMatrix A);
 RcppExport SEXP rdist_euclidean_rdist(SEXP ASEXP) {

@@ -8,17 +8,11 @@
 \alias{rdist-package}
 \title{rdist: an R package for distances}
 \usage{
-rdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation", "hamming",
-  "jaccard"), p = 2)
+rdist(X, metric = "euclidean", p = 2)
 
-pdist(X, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation", "hamming",
-  "jaccard"), p = 2)
+pdist(X, metric = "euclidean", p = 2)
 
-cdist(X, Y, metric = c("euclidean", "minkowski", "manhattan", "chebyshev",
-  "maximum", "angular", "correlation", "absolute_correlation", "hamming",
-  "jaccard"), p = 2)
+cdist(X, Y, metric = "euclidean", p = 2)
 }
 \arguments{
 \item{X, Y}{A matrix}
@@ -44,6 +38,7 @@ Available distance measures are (written for two vectors v and w):
 \item \code{"minkowski"}: \eqn{(\sum_i|v_i - w_i|^p)^{1/p}}{(sum_i(|v_i - w_i|^p))^{1/p}}
 \item \code{"manhattan"}: \eqn{\sum_i(|v_i-w_i|)}{sum_i(|v_i-w_i|)}
 \item \code{"maximum"} or \code{"chebyshev"}: \eqn{\max_i(|v_i-w_i|)}{max_i(|v_i-w_i|)}
+\item \code{"canberra"}: \eqn{\sum_i(\frac{|v_i-w_i|}{|v_i|+|w_i|})}{sum_i(|v_i-w_i|/(|v_i|+|w_i|))}
 \item \code{"angular"}: \eqn{\cos^{-1}(cor(v, w))}{arccos(cor(v, w))}
 \item \code{"correlation"}: \eqn{\sqrt{\frac{1-cor(v, w)}{2}}}{sqrt((1-cor(v, w))/2)}
 \item \code{"absolute_correlation"}: \eqn{\sqrt{\frac{1-|cor(v, w)|}}}{sqrt((1-|cor(v, w)|))}

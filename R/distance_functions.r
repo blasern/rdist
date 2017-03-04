@@ -1,12 +1,15 @@
+available_metrics <- c("euclidean", "minkowski", "manhattan", 
+                       "chebyshev", "maximum", "canberra", 
+                       "angular", "correlation", "absolute_correlation", 
+                       "hamming", "jaccard")
+
 #' @rdname rdist
 #' @export
 rdist <- function(X, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation", 
-                             "hamming", "jaccard"), 
+                  metric = "euclidean", 
                   p = 2){
   # make sure input is well-defined
-  metric <- match.arg(metric)
+  metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
   # use metric
   ans <- switch(metric, 
@@ -15,6 +18,7 @@ rdist <- function(X,
                 "manhattan" = manhattan_rdist(X), 
                 "chebyshev" = maximum_rdist(X), 
                 "maximum" = maximum_rdist(X), 
+                "canberra" = canberra_rdist(X), 
                 "angular" = angular_rdist(X), 
                 "correlation" = correlation_rdist(X), 
                 "absolute_correlation" = absolute_correlation_rdist(X), 
@@ -32,12 +36,10 @@ rdist <- function(X,
 #' @rdname rdist
 #' @export
 pdist <- function(X, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation", 
-                             "hamming", "jaccard"), 
+                  metric = "euclidean", 
                   p = 2){
   # make sure input is well-defined
-  metric <- match.arg(metric)
+  metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
   # use metric
   switch(metric, 
@@ -46,6 +48,7 @@ pdist <- function(X,
          "manhattan" = manhattan_pdist(X), 
          "chebyshev" = maximum_pdist(X), 
          "maximum" = maximum_pdist(X), 
+         "canberra" = canberra_pdist(X), 
          "angular" = angular_pdist(X), 
          "correlation" = correlation_pdist(X), 
          "absolute_correlation" = absolute_correlation_pdist(X), 
@@ -56,12 +59,10 @@ pdist <- function(X,
 #' @rdname rdist
 #' @export
 cdist <- function(X, Y, 
-                  metric = c("euclidean", "minkowski", "manhattan", "chebyshev", "maximum", 
-                             "angular", "correlation", "absolute_correlation", 
-                             "hamming", "jaccard"),
+                  metric = "euclidean",
                   p = 2){
   # make sure input is well-defined
-  metric <- match.arg(metric)
+  metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
   Y <- as.matrix(Y)
   stopifnot(ncol(X) == ncol(Y))
@@ -72,6 +73,7 @@ cdist <- function(X, Y,
          "manhattan" = manhattan_cdist(X, Y),
          "chebyshev" = maximum_cdist(X, Y),
          "maximum" = maximum_cdist(X, Y), 
+         "canberra" = canberra_cdist(X, Y), 
          "angular" = angular_cdist(X, Y), 
          "correlation" = correlation_cdist(X, Y), 
          "absolute_correlation" = absolute_correlation_cdist(X, Y), 
