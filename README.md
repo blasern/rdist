@@ -11,7 +11,11 @@ All functions will return NA or NaN when one of the compared vectors contains NA
 
 ## Installation 
 
-To install the latest version of this R package directly from github:
+To install the latest released version from CRAN:
+
+    install.packages("rdist")
+
+To install the latest development version from github:
 
     install.packages("devtools")
     devtools::install_github("blasern/rdist")
