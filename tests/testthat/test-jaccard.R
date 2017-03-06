@@ -8,9 +8,15 @@ test_that("jaccard metric works as expected", {
   n <- nrow(x)
   m <- matrix(0, nrow=n, ncol=n)
   for(i in seq_len(n - 1))
-    for(j in seq(i, n))
-      m[j, i] <- m[i, j] <- sum(x[i,] != x[j,]) / sum(x[i, ] != 0 | x[j, ] != 0)
-  dist_mat <- m
+    for(j in seq(i, n)){
+      if (all(x[i, ] == x[j, ])) {
+        m[j, i] <- m[i, j] <- 0
+      }
+      else {
+        m[j, i] <- m[i, j] <- sum(x[i,] != x[j,]) / sum(x[i, ] != 0 | x[j, ] != 0) 
+      }
+    }
+  dist_mat <- m  
   dist_dist <- as.dist(dist_mat)
   
   # check pdist and cdist 

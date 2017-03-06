@@ -17,7 +17,13 @@ NumericVector jaccard_rdist(NumericMatrix A) {
     for (int j = i + 1; j < n; ++j){
       arma::urowvec zerovec = (Arow == 0);
       zerovec.elem( find(Ar.row(j) != 0) ).zeros();
-      C(l) = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
+      if (all(Arow == Ar.row(j))) {
+        C(l) = 0.0;
+      }
+      else{
+        C(l)  = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
+      }
+      
       l++;
     }
   }
@@ -38,7 +44,12 @@ NumericMatrix jaccard_pdist(NumericMatrix A) {
     for (int j = 0; j < n; ++j){
       arma::urowvec zerovec = (Arow == 0);
       zerovec.elem( find(Ar.row(j) != 0) ).zeros();
-      C(i, j)  = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
+      if (all(Arow == Ar.row(j))) {
+        C(i, j) = 0.0;
+      }
+      else{
+        C(i, j)  = (double)sum(Arow != Ar.row(j)) / (double)sum(zerovec != 1); 
+      }
     }
   }
   
@@ -59,7 +70,12 @@ NumericMatrix jaccard_cdist(NumericMatrix A, NumericMatrix B) {
     for (int j = 0; j < n; ++j){
       arma::urowvec zerovec = (Arow == 0);
       zerovec.elem( find(Br.row(j) != 0) ).zeros();
-      C(i, j)  = (double)sum(Arow != Br.row(j)) / (double)sum(zerovec != 1); 
+      if (all(Arow == Br.row(j))) {
+        C(i, j) = 0.0;
+      }
+      else{
+        C(i, j)  = (double)sum(Arow != Br.row(j)) / (double)sum(zerovec != 1); 
+      }
     }
   }
   
