@@ -29,6 +29,7 @@ rdist <- function(X,
   attr(ans, "Size") <- nrow(X)
   attr(ans, "call") <- match.call()
   attr(ans, "method") <- metric
+  attr(ans, "Labels") <- dimnames(X)[[1L]]
   class(ans) <- "dist"
   return(ans)
 }
