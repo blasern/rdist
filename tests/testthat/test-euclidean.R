@@ -14,3 +14,27 @@ test_that("euclidean metric works as expected", {
   expect_equivalent(dist_mat[1:2, 3:100], cdist(x[1:2, ], x[3:100, ]))
   expect_equivalent(dist_mat[1, 2:100, drop = FALSE], cdist(x[1, , drop = FALSE], x[2:100, ]))
 })
+
+test_that("euclidean metric works when distance is 0", {
+  a <- c(-1.18541558816627, -1.37865753930762, -0.413418072278032, -0.327468637225544)
+  b <- rnorm(4)
+  amat <- matrix(c(a, a), nrow = 2, byrow = TRUE)
+  bmat <- matrix(c(b, b), nrow = 2, byrow = TRUE)
+  
+  expect_equivalent(
+    dist(amat, method="euclidean"), 
+    rdist::rdist(amat, metric="euclidean")
+  )
+  expect_equivalent(
+    dist(amat, method = "euclidean"),
+    rdist::rdist(amat, metric="minkowski")
+  )
+  expect_equivalent(
+    dist(bmat, method="euclidean"), 
+    rdist::rdist(bmat, metric="euclidean")
+  )
+  expect_equivalent(
+    dist(bmat, method = "euclidean"),
+    rdist::rdist(bmat, metric="minkowski")
+  )
+})

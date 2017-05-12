@@ -1,5 +1,6 @@
 # rdist 0.0.2
 - Fixed bug in jaccard distance
+- Fixed bug in euclidean distance
 - Added labels to rdist output
 
 # rdist 0.0.1

@@ -7,13 +7,13 @@ available_metrics <- c("euclidean", "minkowski", "manhattan",
 #' @export
 rdist <- function(X, 
                   metric = "euclidean", 
-                  p = 2){
+                  p = 2L){
   # make sure input is well-defined
   metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
   # use metric
   ans <- switch(metric, 
-                "euclidean" = euclidean_rdist(X), 
+                "euclidean" = minkowski_rdist(X, p = 2L), 
                 "minkowski" = minkowski_rdist(X, p = p), 
                 "manhattan" = manhattan_rdist(X), 
                 "chebyshev" = maximum_rdist(X), 

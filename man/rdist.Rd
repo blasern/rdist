@@ -9,7 +9,7 @@
 \alias{rdist-package}
 \title{rdist: an R package for distances}
 \usage{
-rdist(X, metric = "euclidean", p = 2)
+rdist(X, metric = "euclidean", p = 2L)
 
 pdist(X, metric = "euclidean", p = 2)
 
