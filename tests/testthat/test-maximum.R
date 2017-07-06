@@ -5,6 +5,7 @@ test_that("maximum metric works as expected", {
   
   dist_dist <- dist(x, method = "maximum")
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "maximum"))
   expect_equivalent(dist_mat, pdist(x, metric = "maximum"))

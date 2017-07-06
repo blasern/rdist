@@ -5,6 +5,7 @@ test_that("canberra metric works as expected", {
   
   dist_dist <- dist(x, method = "canberra")
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "canberra"))
   expect_equivalent(dist_mat, pdist(x, metric = "canberra"))

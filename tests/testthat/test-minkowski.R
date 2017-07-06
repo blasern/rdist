@@ -7,6 +7,7 @@ test_that("minkowski metric works as expected", {
   p <- 2
   dist_dist <- dist(x, method = "minkowski", p = p)
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "minkowski", p = p))
   expect_equivalent(dist_mat, pdist(x, metric = "minkowski", p = p))
@@ -20,6 +21,7 @@ test_that("minkowski metric works as expected", {
   p <- 1
   dist_dist <- dist(x, method = "minkowski", p = p)
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "minkowski", p = p))
   expect_equivalent(dist_mat, pdist(x, metric = "minkowski", p = p))
@@ -33,6 +35,7 @@ test_that("minkowski metric works as expected", {
   p <- 100
   dist_dist <- dist(x, method = "minkowski", p = p)
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x, metric = "minkowski", p = p))
   expect_equivalent(dist_mat, pdist(x, metric = "minkowski", p = p))

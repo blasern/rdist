@@ -6,6 +6,7 @@ test_that("euclidean metric works as expected", {
   # reference results
   dist_dist <- dist(x)
   dist_mat <- as.matrix(dist_dist)
+  attr(dist_mat, "dimnames") <- NULL
   # check pdist and cdist 
   expect_equivalent(dist_dist, rdist(x))
   expect_equivalent(dist(rbind(x[1:5, ], x[1:5,])), rdist(rbind(x[1:5, ], x[1:5,])))
