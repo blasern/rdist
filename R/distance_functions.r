@@ -44,7 +44,7 @@ pdist <- function(X,
   X <- as.matrix(X)
   # use metric
   switch(metric, 
-         "euclidean" = euclidean_pdist(X), 
+         "euclidean" = minkowski_pdist(X, p = 2L), 
          "minkowski" = minkowski_pdist(X, p = p), 
          "manhattan" = manhattan_pdist(X), 
          "chebyshev" = maximum_pdist(X), 
@@ -69,7 +69,7 @@ cdist <- function(X, Y,
   stopifnot(ncol(X) == ncol(Y))
   # use metric
   switch(metric, 
-         "euclidean" = euclidean_cdist(X, Y), 
+         "euclidean" = minkowski_cdist(X, Y, p = 2L), 
          "minkowski" = minkowski_cdist(X, Y, p = p), 
          "manhattan" = manhattan_cdist(X, Y),
          "chebyshev" = maximum_cdist(X, Y),

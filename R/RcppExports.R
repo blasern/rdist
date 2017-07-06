@@ -2,86 +2,86 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 canberra_rdist <- function(A) {
-    .Call('rdist_canberra_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_canberra_rdist, A)
 }
 
 canberra_pdist <- function(A) {
-    .Call('rdist_canberra_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_canberra_pdist, A)
 }
 
 canberra_cdist <- function(A, B) {
-    .Call('rdist_canberra_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_canberra_cdist, A, B)
 }
 
 euclidean_rdist <- function(A) {
-    .Call('rdist_euclidean_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_euclidean_rdist, A)
 }
 
 euclidean_pdist <- function(A) {
-    .Call('rdist_euclidean_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_euclidean_pdist, A)
 }
 
 euclidean_cdist <- function(A, B) {
-    .Call('rdist_euclidean_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_euclidean_cdist, A, B)
 }
 
 hamming_rdist <- function(A) {
-    .Call('rdist_hamming_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_hamming_rdist, A)
 }
 
 hamming_pdist <- function(A) {
-    .Call('rdist_hamming_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_hamming_pdist, A)
 }
 
 hamming_cdist <- function(A, B) {
-    .Call('rdist_hamming_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_hamming_cdist, A, B)
 }
 
 jaccard_rdist <- function(A) {
-    .Call('rdist_jaccard_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_jaccard_rdist, A)
 }
 
 jaccard_pdist <- function(A) {
-    .Call('rdist_jaccard_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_jaccard_pdist, A)
 }
 
 jaccard_cdist <- function(A, B) {
-    .Call('rdist_jaccard_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_jaccard_cdist, A, B)
 }
 
 manhattan_rdist <- function(A) {
-    .Call('rdist_manhattan_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_manhattan_rdist, A)
 }
 
 manhattan_pdist <- function(A) {
-    .Call('rdist_manhattan_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_manhattan_pdist, A)
 }
 
 manhattan_cdist <- function(A, B) {
-    .Call('rdist_manhattan_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_manhattan_cdist, A, B)
 }
 
 maximum_rdist <- function(A) {
-    .Call('rdist_maximum_rdist', PACKAGE = 'rdist', A)
+    .Call(rdist_maximum_rdist, A)
 }
 
 maximum_pdist <- function(A) {
-    .Call('rdist_maximum_pdist', PACKAGE = 'rdist', A)
+    .Call(rdist_maximum_pdist, A)
 }
 
 maximum_cdist <- function(A, B) {
-    .Call('rdist_maximum_cdist', PACKAGE = 'rdist', A, B)
+    .Call(rdist_maximum_cdist, A, B)
 }
 
 minkowski_rdist <- function(A, p) {
-    .Call('rdist_minkowski_rdist', PACKAGE = 'rdist', A, p)
+    .Call(rdist_minkowski_rdist, A, p)
 }
 
 minkowski_pdist <- function(A, p) {
-    .Call('rdist_minkowski_pdist', PACKAGE = 'rdist', A, p)
+    .Call(rdist_minkowski_pdist, A, p)
 }
 
 minkowski_cdist <- function(A, B, p) {
-    .Call('rdist_minkowski_cdist', PACKAGE = 'rdist', A, B, p)
+    .Call(rdist_minkowski_cdist, A, B, p)
 }
 
