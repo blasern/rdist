@@ -74,6 +74,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// farthest_point_sampling_cpp
+NumericMatrix farthest_point_sampling_cpp(NumericMatrix dist, int k, int initial_point_index);
+RcppExport SEXP rdist_farthest_point_sampling_cpp(SEXP distSEXP, SEXP kSEXP, SEXP initial_point_indexSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type dist(distSEXP);
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< int >::type initial_point_index(initial_point_indexSEXP);
+    rcpp_result_gen = Rcpp::wrap(farthest_point_sampling_cpp(dist, k, initial_point_index));
+    return rcpp_result_gen;
+END_RCPP
+}
 // hamming_rdist
 NumericVector hamming_rdist(NumericMatrix A);
 RcppExport SEXP rdist_hamming_rdist(SEXP ASEXP) {
