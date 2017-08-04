@@ -22,7 +22,7 @@ point from the first i-1 points.
 
 # generate data
 df <- matrix(runif(200), ncol = 2)
-dist_mat <- rdist::pdist(df)
+dist_mat <- pdist(df)
 # farthest point sampling
 fps <- farthest_point_sampling(dist_mat)
 # have a look at the fps distance matrix

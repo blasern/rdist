@@ -2,8 +2,10 @@
 
 export(cdist)
 export(farthest_point_sampling)
+export(is_distance_matrix)
 export(pdist)
 export(rdist)
+export(triangle_inequality)
 importFrom(Rcpp,sourceCpp)
 importFrom(stats,as.dist)
 importFrom(stats,cor)
