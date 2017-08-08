@@ -5,6 +5,14 @@
 #' @param mat The matrix to evaluate
 #' @param tolerance Differences smaller than tolerance are not reported.
 #' @name is_metric
+#' @examples 
+#' data <- matrix(rnorm(20), ncol = 2)
+#' dm <- pdist(data)
+#' is_distance_matrix(dm)
+#' triangle_inequality(dm)
+#' 
+#' dm[1, 2] <- 1.1 * dm[1, 2]
+#' is_distance_matrix(dm)
 #' @export
 is_distance_matrix <- function(mat, tolerance = .Machine$double.eps ^ 0.5){
   mat <- as.matrix(mat)
@@ -16,7 +24,7 @@ is_distance_matrix <- function(mat, tolerance = .Machine$double.eps ^ 0.5){
     assymetric <- TRUE
   }
   else {
-    assymetric <- all.equal(mat, t(mat), tolerance = tolerance)
+    assymetric <- !isTRUE(all.equal(mat, t(mat), tolerance = tolerance))
     if (assymetric){
       msg <- c(msg, "Matrix is not symmetric.")
     }
@@ -25,7 +33,7 @@ is_distance_matrix <- function(mat, tolerance = .Machine$double.eps ^ 0.5){
   if (negative){
     msg <- c(msg, "Matrix is not positive.")
   }
-  identity <- !all.equal(diag(mat), rep(0, nrow(mat)))
+  identity <- !isTRUE(all.equal(diag(mat), rep(0, nrow(mat))))
   if (identity){
     msg <- c(msg, "Diagonal is not zero.")
   }
@@ -46,7 +54,6 @@ is_distance_matrix <- function(mat, tolerance = .Machine$double.eps ^ 0.5){
 #' @export
 triangle_inequality <- function(mat, tolerance = .Machine$double.eps ^ 0.5){
   mat <- as.matrix(mat)
-  stopifnot(nrow(mat) == ncol(mat), 
-            !all.equal(mat, t(mat), tolerance = tolerance))
+  stopifnot(nrow(mat) == ncol(mat), all.equal(mat, t(mat), tolerance = tolerance))
   cpp_triangle_inequality(mat, tolerance)
 }

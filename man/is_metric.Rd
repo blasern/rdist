@@ -18,3 +18,12 @@ triangle_inequality(mat, tolerance = .Machine$double.eps^0.5)
 \description{
 Does the distance matric come from a metric
 }
+\examples{
+data <- matrix(rnorm(20), ncol = 2)
+dm <- pdist(data)
+is_distance_matrix(dm)
+triangle_inequality(dm)
+
+dm[1, 2] <- 1.1 * dm[1, 2]
+is_distance_matrix(dm)
+}
