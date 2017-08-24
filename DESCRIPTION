@@ -10,6 +10,6 @@ Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
-    Rcpp
+    Rcpp, methods
 RoxygenNote: 6.0.1
 Suggests: testthat

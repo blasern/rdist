@@ -17,6 +17,7 @@
 #' dist_prod <- product_metric(dist_1, dist_2)
 #' # check equality
 #' all.equal(dist_mat, dist_prod)
+#' @importFrom methods is
 #' @export
 product_metric <- function(..., p = 2){
   metrics <- list(...)
@@ -31,7 +32,7 @@ product_metric <- function(..., p = 2){
   else {
     res <- pmax(...)
   }
-  if (is(metrics[[1]], "dist")) {
+  if (methods::is(metrics[[1]], "dist")) {
     attr(res, "call") <- match.call()
   } 
   return(res)
