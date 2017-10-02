@@ -6,8 +6,8 @@ There are three main functions:
 - `pdist` computes the pairwise distances between observations in one matrix and returns a `matrix`, and
 - `cdist` computes the distances between observations in two matrices and returns a `matrix`. 
 
-All functions have an argument `metric` that can be used to specify the distance function. Available metrics are `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"canberra"`, `"angular"`, `"correlation"`, `"absolute_correlation"`, `"hamming"`, and `"jaccard"`. 
-All functions will return NA or NaN when one of the compared vectors contains NAs.
+All functions have an argument `metric` that can be used to specify the distance function. Available metrics are `"euclidean"`, `"minkowski"`, `"manhattan"`, `"maximum"`, `"canberra"`, `"angular"`, `"correlation"`, `"absolute_correlation"`, `"hamming"`, and `"jaccard"`. In addition the metric can be any function that takes two vectors as arguments and returns their distance.
+All predefined functions will return NA or NaN when one of the compared vectors contains NAs.
 
 ## Installation 
 
