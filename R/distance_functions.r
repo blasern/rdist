@@ -1,13 +1,17 @@
 available_metrics <- c("euclidean", "minkowski", "manhattan", 
                        "chebyshev", "maximum", "canberra", 
                        "angular", "correlation", "absolute_correlation", 
-                       "hamming", "jaccard")
+                       "hamming", "jaccard", "user")
 
 #' @rdname rdist
 #' @export
 rdist <- function(X, 
                   metric = "euclidean", 
                   p = 2L){
+  if (is.function(metric)) {
+    FUN <- metric
+    metric <- "user"
+  }
   # make sure input is well-defined
   metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
@@ -23,7 +27,8 @@ rdist <- function(X,
                 "correlation" = correlation_rdist(X), 
                 "absolute_correlation" = absolute_correlation_rdist(X), 
                 "hamming" = hamming_rdist(X), 
-                "jaccard" = jaccard_rdist(X))
+                "jaccard" = jaccard_rdist(X), 
+                "user" = FUN_rdist(X, metric = FUN))
   # change attributes
   attributes(ans) <- NULL
   attr(ans, "Size") <- nrow(X)
@@ -39,6 +44,10 @@ rdist <- function(X,
 pdist <- function(X, 
                   metric = "euclidean", 
                   p = 2){
+  if (is.function(metric)) {
+    FUN <- metric
+    metric <- "user"
+  }
   # make sure input is well-defined
   metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
@@ -54,7 +63,8 @@ pdist <- function(X,
          "correlation" = correlation_pdist(X), 
          "absolute_correlation" = absolute_correlation_pdist(X), 
          "hamming" = hamming_pdist(X),
-         "jaccard" = jaccard_pdist(X))
+         "jaccard" = jaccard_pdist(X),
+         "user" = FUN_pdist(X, metric = FUN))
 }
 
 #' @rdname rdist
@@ -62,6 +72,10 @@ pdist <- function(X,
 cdist <- function(X, Y, 
                   metric = "euclidean",
                   p = 2){
+  if (is.function(metric)) {
+    FUN <- metric
+    metric <- "user"
+  }
   # make sure input is well-defined
   metric <- match.arg(metric, available_metrics)
   X <- as.matrix(X)
@@ -79,5 +93,6 @@ cdist <- function(X, Y,
          "correlation" = correlation_cdist(X, Y), 
          "absolute_correlation" = absolute_correlation_cdist(X, Y), 
          "hamming" = hamming_cdist(X, Y),
-         "jaccard" = jaccard_cdist(X, Y))
+         "jaccard" = jaccard_cdist(X, Y), 
+         "user" = FUN_cdist(X, Y, metric = FUN))
 }
