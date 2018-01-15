@@ -45,5 +45,6 @@ Available distance measures are (written for two vectors v and w):
 \item \code{"absolute_correlation"}: \eqn{\sqrt{1-|cor(v, w)|^2}}{sqrt((1-|cor(v, w)|^2))}
 \item \code{"hamming"}: \eqn{(\sum_i v_i \neq w_i) / \sum_i 1}{sum_i(v_i != w_i)/sum_i(1)}
 \item \code{"jaccard"}: \eqn{(\sum_i v_i \neq w_i) / \sum_i 1_{v_i \neq 0 \cup w_i \neq 0}}{sum_i(v_i != w_i)/sum_i(v_i != 0 or w_i != 0)}
+\item Any function that defines a distance between two vectors. 
 }
 }
