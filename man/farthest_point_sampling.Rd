@@ -4,10 +4,13 @@
 \alias{farthest_point_sampling}
 \title{Farthest point sampling}
 \usage{
-farthest_point_sampling(dist, k = nrow(dist), initial_point_index = 1L)
+farthest_point_sampling(mat, metric = "precomputed", k = nrow(mat),
+  initial_point_index = 1L)
 }
 \arguments{
-\item{dist}{Original distance matrix}
+\item{mat}{Original distance matrix}
+
+\item{metric}{Distance metric to use (either "precomputed" or a metric from \code{\link{rdist}})}
 
 \item{k}{Number of points to sample}
 
@@ -25,6 +28,8 @@ df <- matrix(runif(200), ncol = 2)
 dist_mat <- pdist(df)
 # farthest point sampling
 fps <- farthest_point_sampling(dist_mat)
+fps2 <- farthest_point_sampling(df, metric = "euclidean")
+all.equal(fps, fps2)
 # have a look at the fps distance matrix
 rdist(df[fps[1:5], ])
 dist_mat[fps, fps][1:5, 1:5]
