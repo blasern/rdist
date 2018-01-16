@@ -45,29 +45,38 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
   //return wrap(preordering);
   
   // find ordered indices
-  for (int i = 1; i < k; ++i){
-    preordering = remove_element(preordering, reordering(i-1)); 
-    arma::uvec indices = reordering.rows(0, i-1);
-    arma::mat local_dist;
-    if (metric == "precomputed"){
-      local_dist = amat.submat(indices, preordering);
+  if (metric == "precomputed"){
+    for (int i = 1; i < k; ++i){
+      preordering = remove_element(preordering, reordering(i-1)); 
+      arma::uvec indices = reordering.rows(0, i-1);
+      arma::mat local_dist = amat.submat(indices, preordering);
+      arma::mat local_min_dist = arma::min(local_dist, 0);
+      reordering(i) = preordering(local_min_dist.index_max());
     }
-    else{
-      Environment rdist("package:rdist");
-      Function cdist = rdist["cdist"];
+  }
+  else {
+    Environment rdist("package:rdist");
+    Function cdist = rdist["cdist"];
+    arma::mat local_min_dist;
+    
+    for (int i = 1; i < k; ++i){
+      preordering = remove_element(preordering, reordering(i-1)); 
+      arma::uvec indices = reordering.rows(0, i-1);
       
-      arma::mat m_indices = amat.rows(indices);
+      arma::mat m_indices = amat.row(reordering(i-1));
       NumericMatrix mat_indices = wrap(m_indices);
       
-      arma::mat m_preordering = amat.rows(preordering);
-      NumericMatrix mat_preordering = wrap(m_preordering);
-      
-      NumericMatrix l_dist = cdist(mat_indices, mat_preordering, metric);
-      local_dist = arma::mat(l_dist.begin(), mat_indices.nrow(), mat_preordering.nrow(), false); 
+      NumericMatrix n_dist = cdist(mat_indices, mat, metric);
+        
+      arma::mat new_dist = arma::mat(n_dist.begin(), n_dist.ncol(), 1, false); 
+      if (i == 1){
+        local_min_dist = new_dist;
+      }
+      arma::mat local_dist = arma::join_rows(local_min_dist, new_dist);
+      local_min_dist = arma::min(local_dist, 1);
+      arma::mat local_local_min_dist = local_min_dist.elem(preordering);
+      reordering(i) = preordering(local_local_min_dist.index_max());
     }
-    
-    arma::mat local_min_dist = arma::min(local_dist, 0);
-    reordering(i) = preordering(local_min_dist.index_max());
   }
   
   // return updated distance
