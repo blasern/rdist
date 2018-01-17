@@ -5,7 +5,7 @@
 \title{Farthest point sampling}
 \usage{
 farthest_point_sampling(mat, metric = "precomputed", k = nrow(mat),
-  initial_point_index = 1L)
+  initial_point_index = 1L, return_clusters = FALSE)
 }
 \arguments{
 \item{mat}{Original distance matrix}
@@ -15,6 +15,8 @@ farthest_point_sampling(mat, metric = "precomputed", k = nrow(mat),
 \item{k}{Number of points to sample}
 
 \item{initial_point_index}{Index of p_1}
+
+\item{return_clusters}{Should the indices of the closest farthest points be returned?}
 }
 \description{
 Farthest point sampling returns a reordering of the metric 

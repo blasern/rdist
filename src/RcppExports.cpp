@@ -75,8 +75,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // farthest_point_sampling_cpp
-NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat, String metric, int k, int initial_point_index);
-RcppExport SEXP _rdist_farthest_point_sampling_cpp(SEXP matSEXP, SEXP metricSEXP, SEXP kSEXP, SEXP initial_point_indexSEXP) {
+NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat, String metric, int k, int initial_point_index, bool return_clusters);
+RcppExport SEXP _rdist_farthest_point_sampling_cpp(SEXP matSEXP, SEXP metricSEXP, SEXP kSEXP, SEXP initial_point_indexSEXP, SEXP return_clustersSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -84,7 +84,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< String >::type metric(metricSEXP);
     Rcpp::traits::input_parameter< int >::type k(kSEXP);
     Rcpp::traits::input_parameter< int >::type initial_point_index(initial_point_indexSEXP);
-    rcpp_result_gen = Rcpp::wrap(farthest_point_sampling_cpp(mat, metric, k, initial_point_index));
+    Rcpp::traits::input_parameter< bool >::type return_clusters(return_clustersSEXP);
+    rcpp_result_gen = Rcpp::wrap(farthest_point_sampling_cpp(mat, metric, k, initial_point_index, return_clusters));
     return rcpp_result_gen;
 END_RCPP
 }

@@ -16,7 +16,8 @@ arma::uvec remove_element(arma::uvec& x, int y){
 NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
                                           String metric,
                                           int k, 
-                                          int initial_point_index = 0) {
+                                          int initial_point_index = 0, 
+                                          bool return_clusters = false) {
   /*
   Farthest Point Sampling
 
@@ -42,16 +43,22 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
   arma::uvec reordering(k, arma::fill::ones);
   reordering *= initial_point_index - 1;
   arma::uvec preordering = arma::linspace<arma::uvec>(0, n-1, n);
-  //return wrap(preordering);
+  arma::urowvec cluster_mat(n);
+  cluster_mat.fill(0);
   
   // find ordered indices
   if (metric == "precomputed"){
+    arma::mat local_dist;
     for (int i = 1; i < k; ++i){
       preordering = remove_element(preordering, reordering(i-1)); 
       arma::uvec indices = reordering.rows(0, i-1);
-      arma::mat local_dist = amat.submat(indices, preordering);
+      local_dist = amat.submat(indices, preordering);
       arma::mat local_min_dist = arma::min(local_dist, 0);
       reordering(i) = preordering(local_min_dist.index_max());
+    }
+    if (return_clusters){
+      arma::mat complete_local_dist = amat.rows(reordering);
+      cluster_mat = arma::index_min(complete_local_dist, 0);
     }
   }
   else {
@@ -59,7 +66,7 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
     Function cdist = rdist["cdist"];
     arma::mat local_min_dist;
     
-    for (int i = 1; i < k; ++i){
+    for (int i = 1; i <= k; ++i){
       preordering = remove_element(preordering, reordering(i-1)); 
       arma::uvec indices = reordering.rows(0, i-1);
       
@@ -74,11 +81,24 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
       }
       arma::mat local_dist = arma::join_rows(local_min_dist, new_dist);
       local_min_dist = arma::min(local_dist, 1);
+      if (return_clusters){
+        arma::urowvec pre_cluster_mat = arma::find(arma::index_min(local_dist, 1)).t();
+        arma::urowvec new_clusters(pre_cluster_mat.n_elem);
+        new_clusters.fill(i-1);
+        cluster_mat.elem(pre_cluster_mat) = new_clusters;
+      }
       arma::mat local_local_min_dist = local_min_dist.elem(preordering);
-      reordering(i) = preordering(local_local_min_dist.index_max());
+      if (i < k){
+        reordering(i) = preordering(local_local_min_dist.index_max());
+      }
     }
   }
   
-  // return updated distance
-  return wrap(reordering + 1);
+  // return reordering
+  NumericMatrix output = wrap(reordering + 1);
+  if (return_clusters){
+    NumericVector clusters = wrap(cluster_mat + 1);
+    output.attr("clusters") = clusters;
+  }
+  return output;
 }

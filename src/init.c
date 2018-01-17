@@ -10,7 +10,7 @@ extern SEXP _rdist_canberra_rdist(SEXP);
 extern SEXP _rdist_euclidean_cdist(SEXP, SEXP);
 extern SEXP _rdist_euclidean_pdist(SEXP);
 extern SEXP _rdist_euclidean_rdist(SEXP);
-extern SEXP _rdist_farthest_point_sampling_cpp(SEXP, SEXP, SEXP, SEXP);
+extern SEXP _rdist_farthest_point_sampling_cpp(SEXP, SEXP, SEXP, SEXP, SEXP);
 extern SEXP _rdist_hamming_cdist(SEXP, SEXP);
 extern SEXP _rdist_hamming_pdist(SEXP);
 extern SEXP _rdist_hamming_rdist(SEXP);
@@ -35,7 +35,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_rdist_euclidean_cdist",             (DL_FUNC) &_rdist_euclidean_cdist,             2},
     {"_rdist_euclidean_pdist",             (DL_FUNC) &_rdist_euclidean_pdist,             1},
     {"_rdist_euclidean_rdist",             (DL_FUNC) &_rdist_euclidean_rdist,             1},
-    {"_rdist_farthest_point_sampling_cpp", (DL_FUNC) &_rdist_farthest_point_sampling_cpp, 4},
+    {"_rdist_farthest_point_sampling_cpp", (DL_FUNC) &_rdist_farthest_point_sampling_cpp, 5},
     {"_rdist_hamming_cdist",               (DL_FUNC) &_rdist_hamming_cdist,               2},
     {"_rdist_hamming_pdist",               (DL_FUNC) &_rdist_hamming_pdist,               1},
     {"_rdist_hamming_rdist",               (DL_FUNC) &_rdist_hamming_rdist,               1},

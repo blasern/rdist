@@ -25,8 +25,8 @@ euclidean_cdist <- function(A, B) {
     .Call(`_rdist_euclidean_cdist`, A, B)
 }
 
-farthest_point_sampling_cpp <- function(mat, metric, k, initial_point_index = 0L) {
-    .Call(`_rdist_farthest_point_sampling_cpp`, mat, metric, k, initial_point_index)
+farthest_point_sampling_cpp <- function(mat, metric, k, initial_point_index = 0L, return_clusters = FALSE) {
+    .Call(`_rdist_farthest_point_sampling_cpp`, mat, metric, k, initial_point_index, return_clusters)
 }
 
 hamming_rdist <- function(A) {

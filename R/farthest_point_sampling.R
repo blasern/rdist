@@ -8,6 +8,7 @@
 #' @param metric Distance metric to use (either "precomputed" or a metric from \code{\link{rdist}})
 #' @param k Number of points to sample
 #' @param initial_point_index Index of p_1
+#' @param return_clusters Should the indices of the closest farthest points be returned? 
 #' 
 #' @examples 
 #' 
@@ -25,7 +26,8 @@
 farthest_point_sampling <- function(mat,
                                     metric = "precomputed", 
                                     k = nrow(mat), 
-                                    initial_point_index = 1L){
+                                    initial_point_index = 1L, 
+                                    return_clusters = FALSE){
   metric <- match.arg(metric, c("precomputed", available_metrics))
   mat <- as.matrix(mat)
   initial_point_index <- as.integer(initial_point_index)
@@ -36,5 +38,14 @@ farthest_point_sampling <- function(mat,
   }
   stopifnot(initial_point_index >= 0L)
   # farthest point sampling
-  as.integer(farthest_point_sampling_cpp(mat, metric, k, initial_point_index))
+  fps <- farthest_point_sampling_cpp(mat, metric, k, initial_point_index, return_clusters)
+  if (return_clusters){
+    clusters <- as.integer(attr(fps, "clusters"))
+    fps <- as.integer(fps)
+    return(list(fps, clusters))
+  }
+  else {
+    fps <- as.integer(fps)
+    return(fps)
+  }
 }
