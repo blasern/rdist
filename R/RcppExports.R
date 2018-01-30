@@ -13,6 +13,18 @@ canberra_cdist <- function(A, B) {
     .Call(`_rdist_canberra_cdist`, A, B)
 }
 
+rdist_cpp <- function(A, metric, p = 2) {
+    .Call(`_rdist_rdist_cpp`, A, metric, p)
+}
+
+pdist_cpp <- function(A, metric, p = 2) {
+    .Call(`_rdist_pdist_cpp`, A, metric, p)
+}
+
+cdist_cpp <- function(A, B, metric, p = 2) {
+    .Call(`_rdist_cdist_cpp`, A, B, metric, p)
+}
+
 euclidean_rdist <- function(A) {
     .Call(`_rdist_euclidean_rdist`, A)
 }

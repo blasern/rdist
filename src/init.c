@@ -27,6 +27,9 @@ extern SEXP _rdist_minkowski_cdist(SEXP, SEXP, SEXP);
 extern SEXP _rdist_minkowski_pdist(SEXP, SEXP);
 extern SEXP _rdist_minkowski_rdist(SEXP, SEXP);
 extern SEXP _rdist_cpp_triangle_inequality(SEXP, SEXP);
+extern SEXP _rdist_rdist_cpp(SEXP, SEXP, SEXP);
+extern SEXP _rdist_pdist_cpp(SEXP, SEXP, SEXP);
+extern SEXP _rdist_cdist_cpp(SEXP, SEXP, SEXP, SEXP);
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rdist_canberra_cdist",              (DL_FUNC) &_rdist_canberra_cdist,              2},
@@ -52,6 +55,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_rdist_minkowski_pdist",             (DL_FUNC) &_rdist_minkowski_pdist,             2},
     {"_rdist_minkowski_rdist",             (DL_FUNC) &_rdist_minkowski_rdist,             2},
     {"_rdist_cpp_triangle_inequality",     (DL_FUNC) &_rdist_cpp_triangle_inequality,     2},
+    {"_rdist_rdist_cpp", 		   (DL_FUNC) &_rdist_rdist_cpp,                   3},	
+    {"_rdist_pdist_cpp", 		   (DL_FUNC) &_rdist_pdist_cpp,                   3},	
+    {"_rdist_cdist_cpp", 		   (DL_FUNC) &_rdist_cdist_cpp,                   4},	
     {NULL, NULL, 0}
 };
 

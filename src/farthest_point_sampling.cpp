@@ -1,3 +1,4 @@
+#include "dist.h"
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -62,8 +63,6 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
     }
   }
   else {
-    Environment rdist("package:rdist");
-    Function cdist = rdist["cdist"];
     arma::mat local_min_dist;
     
     for (int i = 1; i <= k; ++i){
@@ -73,7 +72,7 @@ NumericMatrix farthest_point_sampling_cpp(NumericMatrix mat,
       arma::mat m_indices = amat.row(reordering(i-1));
       NumericMatrix mat_indices = wrap(m_indices);
       
-      NumericMatrix n_dist = cdist(mat_indices, mat, metric);
+      NumericMatrix n_dist = cdist_cpp(mat_indices, mat, metric, 2);
         
       arma::mat new_dist = arma::mat(n_dist.begin(), n_dist.ncol(), 1, false); 
       if (i == 1){

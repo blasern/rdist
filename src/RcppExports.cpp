@@ -40,6 +40,46 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rdist_cpp
+NumericVector rdist_cpp(NumericMatrix A, String metric, float p);
+RcppExport SEXP _rdist_rdist_cpp(SEXP ASEXP, SEXP metricSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< String >::type metric(metricSEXP);
+    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(rdist_cpp(A, metric, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pdist_cpp
+NumericVector pdist_cpp(NumericMatrix A, String metric, float p);
+RcppExport SEXP _rdist_pdist_cpp(SEXP ASEXP, SEXP metricSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< String >::type metric(metricSEXP);
+    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist_cpp(A, metric, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cdist_cpp
+NumericVector cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p);
+RcppExport SEXP _rdist_cdist_cpp(SEXP ASEXP, SEXP BSEXP, SEXP metricSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
+    Rcpp::traits::input_parameter< String >::type metric(metricSEXP);
+    Rcpp::traits::input_parameter< float >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(cdist_cpp(A, B, metric, p));
+    return rcpp_result_gen;
+END_RCPP
+}
 // euclidean_rdist
 NumericVector euclidean_rdist(NumericMatrix A);
 RcppExport SEXP _rdist_euclidean_rdist(SEXP ASEXP) {
