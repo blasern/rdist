@@ -6,6 +6,8 @@ Description: A common framework for calculating distance matrices.
 Depends:
     R (>= 3.2.2)
 License: GPL
+URL: https://github.com/blasern/rdist
+BugReports: https://github.com/blasern/rdist/issues
 Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp, RcppArmadillo

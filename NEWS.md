@@ -1,3 +1,9 @@
+# rdist 0.0.3
+- Added documentation pages
+- Added `product_metric` 
+- Added `farthest_point_sampling` 
+- Added `is_distance_matrix` and `triangle_inequality` checks
+
 # rdist 0.0.2
 - Fixed bug in jaccard distance
 - Fixed bug in euclidean distance
