@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/blasern/rdist.svg?branch=master)](https://travis-ci.org/blasern/rdist)
+
 # rdist
 
 An R package to calculate distances. This provide a common framework to calculate distances.  
