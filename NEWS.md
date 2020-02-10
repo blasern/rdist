@@ -1,3 +1,6 @@
+# rdist 0.0.4
+- Some bugfixes to make CRAN compatible
+
 # rdist 0.0.3
 - Added documentation pages
 - Added `product_metric` 

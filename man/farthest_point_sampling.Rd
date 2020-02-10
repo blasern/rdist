@@ -4,8 +4,13 @@
 \alias{farthest_point_sampling}
 \title{Farthest point sampling}
 \usage{
-farthest_point_sampling(mat, metric = "precomputed", k = nrow(mat),
-  initial_point_index = 1L, return_clusters = FALSE)
+farthest_point_sampling(
+  mat,
+  metric = "precomputed",
+  k = nrow(mat),
+  initial_point_index = 1L,
+  return_clusters = FALSE
+)
 }
 \arguments{
 \item{mat}{Original distance matrix}

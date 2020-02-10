@@ -1,6 +1,6 @@
 Package: rdist
 Title: Calculate Pairwise Distances
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: person("Nello", "Blaser", email = "nello.blaser@uib.no", role = c("aut", "cre"))
 Description: A common framework for calculating distance matrices.
 Depends:
@@ -13,5 +13,5 @@ LazyData: true
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
     Rcpp, methods
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.2
 Suggests: testthat
