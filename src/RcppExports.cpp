@@ -54,7 +54,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // pdist_cpp
-NumericVector pdist_cpp(NumericMatrix A, String metric, float p);
+NumericMatrix pdist_cpp(NumericMatrix A, String metric, float p);
 RcppExport SEXP _rdist_pdist_cpp(SEXP ASEXP, SEXP metricSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -67,7 +67,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // cdist_cpp
-NumericVector cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p);
+NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p);
 RcppExport SEXP _rdist_cdist_cpp(SEXP ASEXP, SEXP BSEXP, SEXP metricSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

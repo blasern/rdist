@@ -56,7 +56,7 @@ NumericVector rdist_cpp(NumericMatrix A, String metric, float p=2) {
 }
 
 // [[Rcpp::export]]
-NumericVector pdist_cpp(NumericMatrix A, String metric, float p=2) {
+NumericMatrix pdist_cpp(NumericMatrix A, String metric, float p=2) {
   NumericMatrix res;
   if (metric == "euclidean"){
     return minkowski_pdist(A, p = 2);
@@ -102,7 +102,7 @@ NumericVector pdist_cpp(NumericMatrix A, String metric, float p=2) {
 }
 
 // [[Rcpp::export]]
-NumericVector cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p=2) {
+NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p=2) {
   NumericMatrix res;
   if (metric == "euclidean"){
     return minkowski_cdist(A, B, p = 2);
