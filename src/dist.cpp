@@ -10,7 +10,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericVector rdist_cpp(NumericMatrix A, String metric, float p=2) {
+NumericVector rdist_cpp(NumericMatrix A, String metric, double p=2) {
   NumericMatrix res;
   if (metric == "euclidean"){
     return minkowski_rdist(A, p = 2);
@@ -56,7 +56,7 @@ NumericVector rdist_cpp(NumericMatrix A, String metric, float p=2) {
 }
 
 // [[Rcpp::export]]
-NumericMatrix pdist_cpp(NumericMatrix A, String metric, float p=2) {
+NumericMatrix pdist_cpp(NumericMatrix A, String metric, double p=2) {
   NumericMatrix res;
   if (metric == "euclidean"){
     return minkowski_pdist(A, p = 2);
@@ -102,7 +102,7 @@ NumericMatrix pdist_cpp(NumericMatrix A, String metric, float p=2) {
 }
 
 // [[Rcpp::export]]
-NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, float p=2) {
+NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, double p=2) {
   NumericMatrix res;
   if (metric == "euclidean"){
     return minkowski_cdist(A, B, p = 2);
