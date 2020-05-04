@@ -1,3 +1,6 @@
+# rdist 0.0.5
+- Minor fix for CRAN
+
 # rdist 0.0.4
 - Some bugfixes to make CRAN compatible
 

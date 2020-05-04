@@ -10,13 +10,13 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-NumericVector rdist_cpp(NumericMatrix A, String metric, double p=2) {
+NumericVector rdist_cpp(NumericMatrix A, String metric, double p=2.0) {
   NumericMatrix res;
   if (metric == "euclidean"){
-    return minkowski_rdist(A, p = 2);
+    return minkowski_rdist(A, 2.0);
   }
   if (metric == "minkowski"){
-    return minkowski_rdist(A, p = p);
+    return minkowski_rdist(A, p);
   }
   if (metric == "manhattan"){
     return manhattan_rdist(A);
@@ -56,13 +56,13 @@ NumericVector rdist_cpp(NumericMatrix A, String metric, double p=2) {
 }
 
 // [[Rcpp::export]]
-NumericMatrix pdist_cpp(NumericMatrix A, String metric, double p=2) {
+NumericMatrix pdist_cpp(NumericMatrix A, String metric, double p=2.0) {
   NumericMatrix res;
   if (metric == "euclidean"){
-    return minkowski_pdist(A, p = 2);
+    return minkowski_pdist(A, 2.0);
   }
   if (metric == "minkowski"){
-    return minkowski_pdist(A, p = p);
+    return minkowski_pdist(A, p);
   }
   if (metric == "manhattan"){
     return manhattan_pdist(A);
@@ -102,13 +102,13 @@ NumericMatrix pdist_cpp(NumericMatrix A, String metric, double p=2) {
 }
 
 // [[Rcpp::export]]
-NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, double p=2) {
+NumericMatrix cdist_cpp(NumericMatrix A, NumericMatrix B, String metric, double p=2.0) {
   NumericMatrix res;
   if (metric == "euclidean"){
-    return minkowski_cdist(A, B, p = 2);
+    return minkowski_cdist(A, B, 2.0);
   }
   if (metric == "minkowski"){
-    return minkowski_cdist(A, B, p = p);
+    return minkowski_cdist(A, B, p);
   }
   if (metric == "manhattan"){
     return manhattan_cdist(A, B);
