@@ -13,15 +13,15 @@ canberra_cdist <- function(A, B) {
     .Call(`_rdist_canberra_cdist`, A, B)
 }
 
-rdist_cpp <- function(A, metric, p = 2) {
+rdist_cpp <- function(A, metric, p = 2.0) {
     .Call(`_rdist_rdist_cpp`, A, metric, p)
 }
 
-pdist_cpp <- function(A, metric, p = 2) {
+pdist_cpp <- function(A, metric, p = 2.0) {
     .Call(`_rdist_pdist_cpp`, A, metric, p)
 }
 
-cdist_cpp <- function(A, B, metric, p = 2) {
+cdist_cpp <- function(A, B, metric, p = 2.0) {
     .Call(`_rdist_cdist_cpp`, A, B, metric, p)
 }
 

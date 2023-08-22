@@ -5,6 +5,7 @@
 \alias{rdist}
 \alias{pdist}
 \alias{cdist}
+\alias{rdist-package}
 \title{rdist: an R package for distances}
 \usage{
 rdist(X, metric = "euclidean", p = 2L)

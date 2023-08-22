@@ -27,6 +27,7 @@
 #' @param metric The distance metric to use
 #' @param p The power of the Minkowski distance
 #' @name rdist
+#' @aliases rdist-package
 #' @docType package
 #' @useDynLib rdist, .registration = TRUE 
 #' @importFrom Rcpp sourceCpp
