@@ -25,8 +25,8 @@ farthest_point_sampling(
 }
 \description{
 Farthest point sampling returns a reordering of the metric 
-space P = {p_1, ..., p_k}, such that each p_i is the farthest 
-point from the first i-1 points.
+space \eqn{P = \{p_1, \ldots, p_k\}}{P = \{p_1, ..., p_k\}}, such that 
+each \eqn{p_i}{p_i} is the farthest point from the first \eqn{i-1}{i-1} points.
 }
 \examples{
 
